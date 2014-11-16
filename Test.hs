@@ -24,7 +24,7 @@ prop_correctInOneIteration earc =
 prop_conversionRetains :: EndpointArc -> Bool
 prop_conversionRetains earc =
     let result = centerToEndpoint (endpointToCenter earc)
-    in earc == trace ("RESULT:" ++ show result) result
+    in earc ~== trace ("RESULT:" ++ show result) result
 
 return []
 
