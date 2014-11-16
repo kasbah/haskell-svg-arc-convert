@@ -18,9 +18,17 @@ cabal-version:       >=1.10
 library
   exposed-modules:     Graphics.SVG.ArcConvert
   -- other-modules:
-  build-depends:       base >=4.7 && <4.8
-                     , ieee754
-                     , bed-and-breakfast
+  build-depends:       base >=4.6 && <4.8
+                     , ieee754 >= 0.7.4 && <0.8
+                     , bed-and-breakfast >= 0.4 && <0.6
   -- hs-source-dirs:
   default-language:    Haskell2010
 
+executable Test
+  main-is:Test.hs
+  build-depends:     base >=4.6 && <4.8
+                   , QuickCheck >= 2 && <3
+                   , ieee754 >= 0.7.4 && <0.8
+                   , bed-and-breakfast >= 0.4 && <0.6
+  -- hs-source-dirs:
+  default-language:    Haskell2010

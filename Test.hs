@@ -17,11 +17,14 @@ instance Arbitrary EndpointArc where
         return $ correctRadiiSize (x1, y1, x2, y2, fA, fS, rx, ry, phi)
 
 prop_correctInOneIteration :: EndpointArc -> Bool
-prop_correctInOneIteration earc = earc ~== correctRadiiSize earc
+prop_correctInOneIteration earc = earc ~== trace ("RESULT:" ++ show correct) correct
+    where correct = correctRadiiSize earc
+
 
 prop_conversionRetains :: EndpointArc -> Bool
 prop_conversionRetains earc =
-    earc ~== trace "RESULT:" (traceShowId (centerToEndpoint (endpointToCenter earc)))
+    earc ~== trace ("RESULT:" ++ show convert) convert
+        where convert = centerToEndpoint (endpointToCenter earc)
 
 return []
 
