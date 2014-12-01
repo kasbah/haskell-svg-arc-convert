@@ -25,7 +25,7 @@ endpointToCenter :: EndpointArc -> CenterArc
 endpointToCenter (x1, y1, x2, y2, fA, fS, rx, ry, phi) =
     let (x1',y1') = primed x1 y1 x2 y2 phi
         (cx',cy') = (sq * rx * y1' / ry, sq * (-ry) * x1' / rx)
-                where sq = negateIf (fA == fS) $ sqrt
+                where sq = negateIf (fA == fS) $ sqrt $ abs
                          $ ( rx^2 * ry^2 - rx^2 * y1'^2 - ry^2 * x1'^2 )
                          / ( rx^2 * y1'^2 + ry^2 * x1'^2 )
 
